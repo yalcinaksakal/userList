@@ -1,0 +1,24 @@
+.Button {
+  outline: none;
+  width: 100%;
+  border: none;
+  background: dodgerblue;
+  box-shadow: 0 2px 5px 1px rgba(5, 30, 52, 0.741);
+  border-radius: 5px;
+  color: white;
+  height: 30px;
+  font-size: 15px;
+  margin: 20px 0;
+  transition: all ease 0.2s;
+}
+
+.Button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 2px 5px 3px rgba(5, 30, 52, 0.476);
+}
+
+@media (min-width: 450px) {
+  .Button {
+    width: 100px;
+  }
+}

@@ -1,0 +1,46 @@
+.Form {
+  margin: 20px auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(179, 212, 241);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.Form div {
+  width: 100%;
+  display: flex;
+  margin: 10px;
+}
+
+.Form label {
+  width: 100px;
+  margin-right: 10px;
+  padding: 5px;
+  color: rgb(4, 45, 126);
+}
+
+.Form input {
+  width: 60%;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+@media (min-width: 600px) {
+  .Form {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .Form div {
+    width: 45%;
+  }
+}

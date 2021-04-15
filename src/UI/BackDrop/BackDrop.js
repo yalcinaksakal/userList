@@ -6,6 +6,7 @@ const backDrop = props => (
       styles["back-drop"],
       props.show ? styles["slide-in"] : null,
     ].join(" ")}
+    onClick={props.clicked}
   ></div>
 );
 export default backDrop;

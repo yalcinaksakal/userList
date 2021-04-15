@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Button from "../../UI/Button/Button";
+import BackDrop from "../../UI/BackDrop/BackDrop";
+import InvalidInput from "../../UI/InvalidInput/InvalidInput";
 import styles from "./Input.module.css";
 
 const Input = props => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-const [invalid,setInvalid]=useState({show:false,msg=""});
+  const [invalid, setInvalid] = useState({ show: false, msg: "" });
   const validate = () => {
     let isValid = true;
     let message = "Please enter";
@@ -31,7 +33,9 @@ const [invalid,setInvalid]=useState({show:false,msg=""});
     e.preventDefault();
     const validity = validate();
     if (validity.ok) props.addUser({ name: name, age: +age });
-    else console.log(validity.msg);
+    else {
+      setInvalid({ show: true, msg: validity.msg });
+    }
   };
   const changeNameHandler = e => {
     setName(e.target.value);
@@ -39,18 +43,28 @@ const [invalid,setInvalid]=useState({show:false,msg=""});
   const changeAgeHandler = e => {
     setAge(e.target.value);
   };
+  const disableInavlidInputMsg = () => setInvalid({ show: false, msg: "" });
+
   return (
-    <form className={styles.Form} onSubmit={submitHandler}>
-      <div>
-        <label>Username</label>
-        <input type="text" value={name} onChange={changeNameHandler} />
-      </div>
-      <div>
-        <label>Age (Years)</label>
-        <input type="text" value={age} onChange={changeAgeHandler} />
-      </div>
-      <Button>Add User</Button>
-    </form>
+    <div>
+      <BackDrop show={invalid.show} clicked={disableInavlidInputMsg} />
+      <InvalidInput
+        msg={invalid.msg}
+        show={invalid.show}
+        clicked={disableInavlidInputMsg}
+      />
+      <form className={styles.Form} onSubmit={submitHandler}>
+        <div>
+          <label>Username</label>
+          <input type="text" value={name} onChange={changeNameHandler} />
+        </div>
+        <div>
+          <label>Age (Years)</label>
+          <input type="text" value={age} onChange={changeAgeHandler} />
+        </div>
+        <Button>Add User</Button>
+      </form>{" "}
+    </div>
   );
 };
 export default Input;

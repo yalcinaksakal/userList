@@ -3,10 +3,14 @@ import Button from "../Button/Button";
 
 const invalidInput = props => {
   return (
-    <div className={styles.Invalid}>
-      <h1>Inavlid Input</h1>
-      <p>{props.message}</p>
-      <Button>OK</Button>
+    <div
+      className={[styles.Invalid, props.show ? styles["slide-in"] : null].join(
+        " "
+      )}
+    >
+      <h1>Invalid Input</h1>
+      <p>{props.msg}</p>
+      <Button clicked={props.clicked}>OK</Button>
     </div>
   );
 };

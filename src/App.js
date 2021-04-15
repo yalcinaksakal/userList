@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import BackDrop from "./UI/BackDrop/BackDrop";
+
 import Input from "./components/Input/Input";
 import UserList from "./components/UserList/UserList";
 function App() {
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <BackDrop />
+    
       <Input addUser={addUser} />
       <UserList users={users} />
     </div>

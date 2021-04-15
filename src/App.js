@@ -11,7 +11,6 @@ function App() {
 
   return (
     <div>
-    
       <Input addUser={addUser} />
       <UserList users={users} />
     </div>

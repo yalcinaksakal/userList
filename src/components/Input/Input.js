@@ -55,15 +55,20 @@ const Input = props => {
       />
       <form className={styles.Form} onSubmit={submitHandler}>
         <div>
-          <label>Username</label>
-          <input type="text" value={name} onChange={changeNameHandler} />
+          <label htmlFor="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            value={name}
+            onChange={changeNameHandler}
+          />
         </div>
         <div>
-          <label>Age (Years)</label>
-          <input type="text" value={age} onChange={changeAgeHandler} />
+          <label htmlFor="age">Age (Years)</label>
+          <input id="age" type="text" value={age} onChange={changeAgeHandler} />
         </div>
         <Button>Add User</Button>
-      </form>{" "}
+      </form>
     </div>
   );
 };

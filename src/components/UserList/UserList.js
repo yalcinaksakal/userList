@@ -1,7 +1,8 @@
 import styles from "./Userlist.module.css";
-
-const userList = props => {
+import { useRef } from "react";
+const UserList = props => {
   let content = "";
+  const listEl = useRef(null);
   if (props.users.length) {
     content = (
       <ul>
@@ -13,8 +14,18 @@ const userList = props => {
         ))}
       </ul>
     );
+    listEl.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
   } else content = "No users. Please add a user.";
-
-  return <div className={styles.List}>{content}</div>;
+ 
+   
+  return (
+    <div ref={listEl} className={styles.List}>
+      {content}
+    </div>
+  );
 };
-export default userList;
+export default UserList;

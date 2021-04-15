@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import BackDrop from "./UI/BackDrop/BackDrop";
 import Input from "./components/Input/Input";
+import UserList from "./components/UserList/UserList";
 function App() {
   const [users, setUsers] = useState([]);
-  const addUser = user => setUsers(prevState => [...prevState, user]);
+  const addUser = user => {
+    user.id = `u${users.length}`;
+    setUsers(prevState => [...prevState, user]);
+  };
 
   return (
     <div>

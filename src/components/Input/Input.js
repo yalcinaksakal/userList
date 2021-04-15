@@ -1,10 +1,11 @@
 import { useState } from "react";
 import Button from "../../UI/Button/Button";
 import styles from "./Input.module.css";
+
 const Input = props => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
-
+const [invalid,setInvalid]=useState({show:false,msg=""});
   const validate = () => {
     let isValid = true;
     let message = "Please enter";
@@ -18,8 +19,8 @@ const Input = props => {
     }
     if (!isValid) message += ". (non-empty values) ";
     else message = "";
-    if (!Number.isInteger(+age.trim())) {
-      message += "Age must be an integer.";
+    if (!Number.isInteger(+age.trim()) || +age.trim() < 0) {
+      message += "Age must be a positive integer.";
       isValid = false;
     }
 
@@ -41,16 +42,13 @@ const Input = props => {
   return (
     <form className={styles.Form} onSubmit={submitHandler}>
       <div>
-        {" "}
         <label>Username</label>
         <input type="text" value={name} onChange={changeNameHandler} />
       </div>
       <div>
-        {" "}
         <label>Age (Years)</label>
         <input type="text" value={age} onChange={changeAgeHandler} />
       </div>
-
       <Button>Add User</Button>
     </form>
   );

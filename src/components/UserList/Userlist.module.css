@@ -1,0 +1,17 @@
+.List {
+  width: 90%;
+  background: rgb(148, 231, 148);
+  color: white;
+  margin: 0 auto;
+  min-height: 100px;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+}
+
+.List ul {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+}

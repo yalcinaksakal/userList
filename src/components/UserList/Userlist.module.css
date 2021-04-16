@@ -17,4 +17,5 @@
 }
 .List li:last-of-type {
   font-weight: bold;
+  color: dodgerblue;
 }

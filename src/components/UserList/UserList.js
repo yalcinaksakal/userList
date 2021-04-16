@@ -2,7 +2,7 @@ import styles from "./Userlist.module.css";
 import { useRef } from "react";
 const UserList = props => {
   let content = "";
-  const listEl = useRef(null);
+  const listEl = useRef();
   if (props.users.length) {
     content = (
       <ul>

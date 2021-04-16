@@ -4,6 +4,7 @@ import BackDrop from "../../UI/BackDrop/BackDrop";
 import InvalidInput from "../../UI/InvalidInput/InvalidInput";
 import styles from "./Input.module.css";
 import Wrapper from "../../Helpers/Wrapper/Wrapper";
+import ReactDOM from "react-dom";
 const Input = props => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -47,12 +48,19 @@ const Input = props => {
 
   return (
     <Wrapper>
-      <BackDrop show={invalid.show} clicked={disableInavlidInputMsg} />
-      <InvalidInput
-        msg={invalid.msg}
-        show={invalid.show}
-        clicked={disableInavlidInputMsg}
-      />
+      {ReactDOM.createPortal(
+        <BackDrop show={invalid.show} clicked={disableInavlidInputMsg} />,
+        document.getElementById("backdrop-root")
+      )}
+      {ReactDOM.createPortal(
+        <InvalidInput
+          msg={invalid.msg}
+          show={invalid.show}
+          clicked={disableInavlidInputMsg}
+        />,
+        document.getElementById("ivalid-root")
+      )}
+
       <form className={styles.Form} onSubmit={submitHandler}>
         <div>
           <label htmlFor="username">Username</label>

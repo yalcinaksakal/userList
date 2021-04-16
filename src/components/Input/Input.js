@@ -3,7 +3,7 @@ import Button from "../../UI/Button/Button";
 import BackDrop from "../../UI/BackDrop/BackDrop";
 import InvalidInput from "../../UI/InvalidInput/InvalidInput";
 import styles from "./Input.module.css";
-
+import Wrapper from "../../Helpers/Wrapper/Wrapper";
 const Input = props => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -46,7 +46,7 @@ const Input = props => {
   const disableInavlidInputMsg = () => setInvalid({ show: false, msg: "" });
 
   return (
-    <div>
+    <Wrapper>
       <BackDrop show={invalid.show} clicked={disableInavlidInputMsg} />
       <InvalidInput
         msg={invalid.msg}
@@ -69,7 +69,7 @@ const Input = props => {
         </div>
         <Button>Add User</Button>
       </form>
-    </div>
+    </Wrapper>
   );
 };
 export default Input;
